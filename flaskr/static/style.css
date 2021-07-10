@@ -1,0 +1,81 @@
+html {
+    font-family: sans-serif;
+    background: #eee;
+    padding: 1rem;
+}
+
+body {
+    max-width: 960px;
+    margin: 0 auto;
+    background: white;
+}
+
+.navbar {
+    font-size: large;
+    background: lightgray;
+    align-items: center;
+    padding: 0 0.5rem;
+    min-height: 60px;
+}
+
+.navbar-brand {
+    font-size: 250%;
+    /*display: block;*/
+    padding: 10px 40px;
+}
+
+.nav {
+    color: white;
+    display: block;
+    padding: 10px 40px;
+}
+
+.web_name {
+    color: black;
+}
+
+.username {
+    color: white;
+}
+
+.text_size {
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, serif;
+}
+
+form {
+    background: white;
+    margin: 25px auto 25px auto;
+}
+
+label {
+    display: inline-block;
+    width: 60px;
+    text-align: justify;
+    text-align-last: justify;
+    margin-right: 10px;
+}
+
+.content > header {
+    border-bottom: 1px solid lightgray;
+}
+
+h2 {
+    color: #377bad;
+    text-align: center;
+    font-family: Consolas, sans-serif;
+}
+
+.row > div {
+    color: slategray;
+    font-style: italic;
+}
+
+article p {
+    font-size: 25px;
+    font-family: 等线, sans-serif;
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh">
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <h1 class="web_name navbar-brand">极简网站</h1>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            {% if g.user %}
+                <li><a href="#"><span class="username">用户名:{{ g.user['username'] }}</span></a>
+                <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+                    {% else %}
+                <li><a href="{{ url_for('auth.register') }}"><span
+                        class="glyphicon glyphicon-user"></span> 注册</a>
+                <li><a href="{{ url_for('auth.login') }}"><span
+                    class="glyphicon glyphicon-log-in"></span> 登录</a>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+        <div class="text-center btn-danger">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</section>
+</html>

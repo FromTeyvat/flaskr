@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}正在修改 "{{ post['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <form method="post" class="col-xs-offset-3 col-xs-6">
+            <div class="form-group col-xs-offset-1">
+                <label for="title">标题:</label><br/>
+                <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
+            </div>
+            <div class="form-group col-xs-offset-1">
+                <label for="body">正文:<br/></label><br/>
+                <textarea name="body" id="body" rows="8"
+                          cols="30">{{ request.form['body'] or post['body'] }}</textarea>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3">
+                    <input type="submit" value="保存">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post" class="col-xs-offset-8 col-xs-1">
+                <input class="btn btn-danger" type="submit" value="删除" onclick="return confirm('你真的要删除这篇文章吗?');">
+        </form>
+    </div>
+
+{% endblock %}
